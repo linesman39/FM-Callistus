@@ -20,53 +20,56 @@
             background: rgba(30,30,30,0.7); z-index: 1;
         }
         .hero-content { position: relative; z-index: 2; }
-        .profile-img { width: 130px; border-radius: 50%; border: 4px solid #ffd700; margin-bottom: 1rem; box-shadow: 0 4px 16px #0005; animation: float 2.5s ease-in-out infinite alternate; }
+        .profile-imgs { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1rem; }
+        .profile-img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 4px solid #ff8800; box-shadow: 0 4px 16px #0005; animation: float 2.5s ease-in-out infinite alternate; background: #fff; }
+        .profile-img:last-child { animation-delay: 1.2s; }
         @keyframes float { 0% { transform: translateY(0); } 100% { transform: translateY(-12px); } }
         .hero-title { font-size: 2.7rem; margin: 0.5rem 0 0.2rem; letter-spacing: 1px; }
         .hero-sub { font-size: 1.3rem; margin-bottom: 1.2rem; }
-        .cta-btn { background: #ffd700; color: #222; border: none; border-radius: 30px; padding: 0.8rem 2.2rem; font-size: 1.1rem; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px #0002; transition: background 0.2s, color 0.2s, transform 0.2s; }
-        .cta-btn:hover { background: #1a73e8; color: #fff; transform: scale(1.05); }
+        .cta-btn { background: #ff8800; color: #fff; border: none; border-radius: 30px; padding: 0.8rem 2.2rem; font-size: 1.1rem; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px #0002; transition: background 0.2s, color 0.2s, transform 0.2s; }
+        .cta-btn:hover { background: #222; color: #ff8800; transform: scale(1.05); }
         nav { background: #222; padding: 0.5rem 0; text-align: center; position: sticky; top: 0; z-index: 10; }
-        nav a { color: #ffd700; margin: 0 1.5rem; text-decoration: none; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; transition: color 0.2s; }
-        nav a:hover { color: #1a73e8; text-decoration: underline; }
+        nav a { color: #ff8800; margin: 0 1.5rem; text-decoration: none; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.5px; transition: color 0.2s; }
+        nav a:hover { color: #fff; text-decoration: underline; }
         .socials { margin: 1.2rem 0 0.5rem; }
-        .socials a { color: #ffd700; margin: 0 0.7rem; font-size: 1.7rem; transition: color 0.2s, transform 0.2s; display: inline-block; }
-        .socials a:hover { color: #1a73e8; transform: scale(1.2) rotate(-10deg); }
+        .socials a { color: #ff8800; margin: 0 0.7rem; font-size: 1.7rem; transition: color 0.2s, transform 0.2s; display: inline-block; }
+        .socials a:hover { color: #fff; transform: scale(1.2) rotate(-10deg); }
         .container { max-width: 950px; margin: 2rem auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #0001; padding: 2.5rem 2rem; }
         .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; }
-        .stat-card { background: #1a73e8; color: #fff; border-radius: 12px; padding: 1.2rem 2rem; min-width: 160px; text-align: center; box-shadow: 0 2px 8px #0002; font-size: 1.1rem; font-weight: 600; transition: transform 0.2s; }
-        .stat-card i { font-size: 2.2rem; margin-bottom: 0.3rem; color: #ffd700; animation: bounce 2s infinite alternate; }
+        .stat-card { background: #ff8800; color: #fff; border-radius: 12px; padding: 1.2rem 2rem; min-width: 160px; text-align: center; box-shadow: 0 2px 8px #0002; font-size: 1.1rem; font-weight: 600; transition: transform 0.2s; }
+        .stat-card i { font-size: 2.2rem; margin-bottom: 0.3rem; color: #fff; animation: bounce 2s infinite alternate; }
         .stat-card:hover { transform: scale(1.07) rotate(-2deg); }
         @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
-        h2 { color: #1a73e8; margin-top: 0; font-size: 2rem; }
-        .timeline { border-left: 4px solid #ffd700; margin: 2rem 0 2.5rem 1.5rem; padding-left: 2rem; position: relative; }
-        .timeline::before { content: ''; position: absolute; left: -12px; top: 0; width: 20px; height: 20px; background: #ffd700; border-radius: 50%; }
+        h2 { color: #ff8800; margin-top: 0; font-size: 2rem; }
+        .timeline { border-left: 4px solid #ff8800; margin: 2rem 0 2.5rem 1.5rem; padding-left: 2rem; position: relative; }
+        .timeline::before { content: ''; position: absolute; left: -12px; top: 0; width: 20px; height: 20px; background: #ff8800; border-radius: 50%; }
         .timeline-event { margin-bottom: 1.5rem; position: relative; }
-        .timeline-event:before { content: '\265C'; position: absolute; left: -2.5rem; top: 0; font-size: 1.5rem; color: #1a73e8; animation: spin 3s linear infinite; }
+        .timeline-event:before { content: '\265C'; position: absolute; left: -2.5rem; top: 0; font-size: 1.5rem; color: #ff8800; animation: spin 3s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
         .badges { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
-        .badge { background: #ffd700; color: #222; border-radius: 20px; padding: 0.4rem 1.2rem; font-weight: bold; font-size: 1rem; box-shadow: 0 1px 4px #0001; }
-        .carousel { position: relative; max-width: 600px; margin: 2rem auto 2.5rem; background: #f1f1f1; border-radius: 10px; box-shadow: 0 2px 8px #0001; padding: 1.5rem 2rem; text-align: center; }
-        .carousel-quote { font-style: italic; font-size: 1.1rem; min-height: 60px; }
-        .carousel-author { margin-top: 0.7rem; font-weight: bold; color: #1a73e8; }
-        .carousel-btn { background: none; border: none; color: #1a73e8; font-size: 1.5rem; cursor: pointer; margin: 0 1rem; transition: color 0.2s; }
-        .carousel-btn:hover { color: #ffd700; }
-        .fun-facts { background: #e3f2fd; border-radius: 10px; padding: 1.2rem 1.5rem; margin-bottom: 2.5rem; box-shadow: 0 1px 4px #0001; }
-        .fun-facts h3 { color: #1a73e8; margin-top: 0; }
+        .badge { background: #ff8800; color: #fff; border-radius: 20px; padding: 0.4rem 1.2rem; font-weight: bold; font-size: 1rem; box-shadow: 0 1px 4px #0001; }
+        .carousel { position: relative; max-width: 600px; margin: 2rem auto 2.5rem; background: #fff3e0; border-radius: 10px; box-shadow: 0 2px 8px #0001; padding: 1.5rem 2rem; text-align: center; }
+        .carousel-quote { font-style: italic; font-size: 1.1rem; min-height: 60px; color: #222; }
+        .carousel-author { margin-top: 0.7rem; font-weight: bold; color: #ff8800; }
+        .carousel-btn { background: none; border: none; color: #ff8800; font-size: 1.5rem; cursor: pointer; margin: 0 1rem; transition: color 0.2s; }
+        .carousel-btn:hover { color: #222; }
+        .fun-facts { background: #fff3e0; border-radius: 10px; padding: 1.2rem 1.5rem; margin-bottom: 2.5rem; box-shadow: 0 1px 4px #0001; }
+        .fun-facts h3 { color: #ff8800; margin-top: 0; }
         .fun-facts ul { margin: 0; }
         .section { margin-bottom: 2.5rem; animation: fadeIn 1.2s; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: none; } }
-        .contact { background: #1a73e8; color: #fff; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px #0002; }
-        .contact a { color: #ffd700; text-decoration: underline; }
+        .contact { background: #ff8800; color: #fff; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 8px #0002; }
+        .contact a { color: #fff; text-decoration: underline; }
         .chess-anim { display: flex; justify-content: center; gap: 1.5rem; margin: 2rem 0; }
-        .chess-anim i { font-size: 2.5rem; color: #1a73e8; animation: wiggle 1.5s infinite alternate; }
-        .chess-anim i:nth-child(2) { color: #ffd700; animation-delay: 0.5s; }
+        .chess-anim i { font-size: 2.5rem; color: #ff8800; animation: wiggle 1.5s infinite alternate; }
+        .chess-anim i:nth-child(2) { color: #fff; animation-delay: 0.5s; }
         .chess-anim i:nth-child(3) { color: #222; animation-delay: 1s; }
         @keyframes wiggle { 0% { transform: rotate(-10deg); } 100% { transform: rotate(10deg); } }
         @media (max-width: 700px) {
             .container { padding: 1rem; }
             .stats-row { flex-direction: column; gap: 1rem; }
             .carousel { padding: 1rem; }
+            .profile-imgs { flex-direction: column; gap: 1rem; }
         }
     </style>
 </head>
@@ -74,7 +77,10 @@
     <header class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <img src="https://lichess1.org/assets/_6vQwQ/profile-fm.svg" alt="FM Eyetonghan Denyefa Callistus" class="profile-img">
+            <div class="profile-imgs">
+                <img src="assets/img/Mypic.png" alt="FM Callistus Main Pic" class="profile-img">
+                <img src="assets/img/pic.png" alt="FM Callistus Chess" class="profile-img">
+            </div>
             <h1 class="hero-title">FM Eyetonghan Denyefa Callistus</h1>
             <div class="hero-sub">FIDE Master | Chess Coach | FIDE Rating: 2288 | Lagos, Nigeria</div>
             <div class="chess-anim">
