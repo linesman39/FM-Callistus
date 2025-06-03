@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Montserrat', Arial, sans-serif; margin: 0; background: #f7f7f7; color: #222; }
+        :root[data-theme="light"] {
+            --bg-color: #f7f7f7;
+            --text-color: #222;
+            --container-bg: #fff;
+            --card-bg: #fff;
+            --nav-bg: #222;
+            --nav-text: #ff8800;
+            --nav-hover: #fff;
+            --shadow-color: #0001;
+            --fun-facts-bg: #fff3e0;
+            --timeline-color: #ff8800;
+        }
+
+        :root[data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+            --container-bg: #2d2d2d;
+            --card-bg: #333;
+            --nav-bg: #000;
+            --nav-text: #ff8800;
+            --nav-hover: #fff;
+            --shadow-color: #0003;
+            --fun-facts-bg: #332200;
+            --timeline-color: #ff8800;
+        }
+
+        body { 
+            font-family: 'Montserrat', Arial, sans-serif; 
+            margin: 0; 
+            background: var(--bg-color); 
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--nav-text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            margin-left: 1rem;
+            transition: color 0.2s;
+        }
+
+        .theme-toggle:hover {
+            color: var(--nav-hover);
+        }
+
         header.hero {
             background: url('assets/img/background.png') center/cover no-repeat;
             color: #fff;
@@ -34,26 +82,78 @@
         .socials { margin: 1.2rem 0 0.5rem; }
         .socials a { color: #ff8800; margin: 0 0.7rem; font-size: 1.7rem; transition: color 0.2s, transform 0.2s; display: inline-block; }
         .socials a:hover { color: #fff; transform: scale(1.2) rotate(-10deg); }
-        .container { max-width: 950px; margin: 2rem auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px #0001; padding: 2.5rem 2rem; }
+        .container { 
+            max-width: 950px; 
+            margin: 2rem auto; 
+            background: var(--container-bg); 
+            border-radius: 12px; 
+            box-shadow: 0 2px 12px var(--shadow-color); 
+            padding: 2.5rem 2rem;
+            transition: background-color 0.3s;
+        }
         .stats-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; }
-        .stat-card { background: #ff8800; color: #fff; border-radius: 12px; padding: 1.2rem 2rem; min-width: 160px; text-align: center; box-shadow: 0 2px 8px #0002; font-size: 1.1rem; font-weight: 600; transition: transform 0.2s; }
+        .stat-card { 
+            background: #ff8800; 
+            color: #fff; 
+            border-radius: 12px; 
+            padding: 1.2rem 2rem; 
+            min-width: 160px; 
+            text-align: center; 
+            box-shadow: 0 2px 8px var(--shadow-color); 
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            transition: transform 0.2s, background-color 0.3s;
+        }
         .stat-card i { font-size: 2.2rem; margin-bottom: 0.3rem; color: #fff; animation: bounce 2s infinite alternate; }
         .stat-card:hover { transform: scale(1.07) rotate(-2deg); }
         @keyframes bounce { 0% { transform: translateY(0); } 100% { transform: translateY(-8px); } }
         h2 { color: #ff8800; margin-top: 0; font-size: 2rem; }
-        .timeline { border-left: 4px solid #ff8800; margin: 2rem 0 2.5rem 1.5rem; padding-left: 2rem; position: relative; }
-        .timeline::before { content: ''; position: absolute; left: -12px; top: 0; width: 20px; height: 20px; background: #ff8800; border-radius: 50%; }
+        .timeline { 
+            border-left: 4px solid var(--timeline-color); 
+            margin: 2rem 0 2.5rem 1.5rem; 
+            padding-left: 2rem; 
+            position: relative;
+            transition: border-color 0.3s;
+        }
+        .timeline::before { 
+            content: ''; 
+            position: absolute; 
+            left: -12px; 
+            top: 0; 
+            width: 20px; 
+            height: 20px; 
+            background: var(--timeline-color); 
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
         .timeline-event { margin-bottom: 1.5rem; position: relative; }
         .timeline-event:before { content: '\265C'; position: absolute; left: -2.5rem; top: 0; font-size: 1.5rem; color: #ff8800; animation: spin 3s linear infinite; }
         @keyframes spin { 0% { transform: rotate(0); } 100% { transform: rotate(360deg); } }
         .badges { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 2rem; }
         .badge { background: #ff8800; color: #fff; border-radius: 20px; padding: 0.4rem 1.2rem; font-weight: bold; font-size: 1rem; box-shadow: 0 1px 4px #0001; }
-        .carousel { position: relative; max-width: 600px; margin: 2rem auto 2.5rem; background: #fff3e0; border-radius: 10px; box-shadow: 0 2px 8px #0001; padding: 1.5rem 2rem; text-align: center; }
+        .carousel { 
+            position: relative; 
+            max-width: 600px; 
+            margin: 2rem auto 2.5rem; 
+            background: var(--fun-facts-bg); 
+            border-radius: 10px; 
+            box-shadow: 0 2px 8px var(--shadow-color); 
+            padding: 1.5rem 2rem; 
+            text-align: center;
+            transition: background-color 0.3s;
+        }
         .carousel-quote { font-style: italic; font-size: 1.1rem; min-height: 60px; color: #222; }
         .carousel-author { margin-top: 0.7rem; font-weight: bold; color: #ff8800; }
         .carousel-btn { background: none; border: none; color: #ff8800; font-size: 1.5rem; cursor: pointer; margin: 0 1rem; transition: color 0.2s; }
         .carousel-btn:hover { color: #222; }
-        .fun-facts { background: #fff3e0; border-radius: 10px; padding: 1.2rem 1.5rem; margin-bottom: 2.5rem; box-shadow: 0 1px 4px #0001; }
+        .fun-facts { 
+            background: var(--fun-facts-bg); 
+            border-radius: 10px; 
+            padding: 1.2rem 1.5rem; 
+            margin-bottom: 2.5rem; 
+            box-shadow: 0 1px 4px var(--shadow-color);
+            transition: background-color 0.3s;
+        }
         .fun-facts h3 { color: #ff8800; margin-top: 0; }
         .fun-facts ul { margin: 0; }
         .section { margin-bottom: 2.5rem; animation: fadeIn 1.2s; }
@@ -130,6 +230,9 @@
         <a href="#teaching">Teaching</a>
         <a href="#methodology">Methodology</a>
         <a href="#contact">Contact</a>
+        <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
     </nav>
     <div class="container">
         <div class="stats-row">
@@ -249,6 +352,27 @@
     }
     // Initialize
     showQuote(currentQuote);
+
+    // Theme toggle functionality
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        html.setAttribute('data-theme', newTheme);
+        
+        // Update theme toggle icon
+        const themeIcon = document.querySelector('.theme-toggle i');
+        themeIcon.className = newTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        
+        // Save theme preference
+        localStorage.setItem('theme', newTheme);
+    }
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    const themeIcon = document.querySelector('.theme-toggle i');
+    themeIcon.className = savedTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
     </script>
 </body>
 </html>
